@@ -6,7 +6,7 @@
 			"params": {
 				"skips": [],
 				"source": "Ciphertext",
-				"phonetic": false,
+				"phonetic": true,
 				"reversed": false
 			},
 			"analysis":{

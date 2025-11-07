@@ -251,6 +251,8 @@ def vigenere_bruteforce(runes, key_len, phonetic,skips):
 
 
 def analysis_functions(analysis, ciphertext):
+
+    ciphertext = clean(ciphertext,[])
     if analysis.get("IoC"):
 
         ioc_values = {}  # store IoC per key length
