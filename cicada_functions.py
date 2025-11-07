@@ -296,7 +296,6 @@ def direct_translation(runes):
             phonetics = phonetics + rune_phon
         else:
             phonetics = phonetics + rune
-
     return phonetics
 
 def direct_translation_with_space(runes):

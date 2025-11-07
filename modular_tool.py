@@ -36,32 +36,32 @@ def decrypt(ciphertext,encryption_method,params,analysis):
             result_ciphertext = vigenere(ciphertext,params.get("key"),True,params.get("skips"), False)
             previous_result = result_ciphertext
             analysis_functions(analysis,result_ciphertext)
-            if params.get("phonetic") == "True":
+            if params.get("phonetic") == True:
                 print(direct_translation(result_ciphertext))
         case "Atbash":
             result_ciphertext = atbash(ciphertext,False)
             previous_result = result_ciphertext
             analysis_functions(analysis,result_ciphertext)
-            if params.get("phonetic") == "True":
+            if params.get("phonetic") == True:
                 print(direct_translation(result_ciphertext))
         case "Eulers":
             result_ciphertext = eulers(ciphertext,False)
             previous_result = result_ciphertext
             analysis_functions(analysis,result_ciphertext)
-            if params.get("phonetic") == "True":
+            if params.get("phonetic") == True:
                 print(direct_translation(result_ciphertext))
         case "Autokey":
             if params.get("source") == "Ciphertext":
                 result_ciphertext = autokey(ciphertext,False, params.get("reversed"))
                 previous_result = result_ciphertext
                 analysis_functions(analysis,result_ciphertext)
-            if params.get("phonetic") == "True":
+            if params.get("phonetic") == True:
                 print(direct_translation(result_ciphertext))
         case "Shift":
             result_ciphertext = shift(ciphertext,params.get("shift"),False)
             previous_result = result_ciphertext
             analysis_functions(analysis,result_ciphertext)
-            if params.get("phonetic") == "True":
+            if params.get("phonetic") == True:
                 print(direct_translation(result_ciphertext))
 
 # The tool can handle multiple encryptions at the same time, as seen in examlpe json.
@@ -78,26 +78,26 @@ for encryption in data["encryption"]:
             result_ciphertext = vigenere(ciphertext,params.get("key"),True,params.get("skips"), False)
             decrypt_results.append(result_ciphertext)
             analysis_functions(analysis,result_ciphertext)
-            if params.get("phonetic") == "True":
+            if params.get("phonetic") == True:
                 print(direct_translation(result_ciphertext))
         case "Atbash":
             result_ciphertext = atbash(ciphertext,False)
             decrypt_results.append(result_ciphertext)
             analysis_functions(analysis,result_ciphertext)
-            if params.get("phonetic") == "True":
+            if params.get("phonetic") == True:
                 print(direct_translation(result_ciphertext))
         case "Eulers":
             result_ciphertext = eulers(ciphertext,False)
             decrypt_results.append(result_ciphertext)
             analysis_functions(analysis,result_ciphertext)
-            if params.get("phonetic") == "True":
+            if params.get("phonetic") == True:
                 print(direct_translation(result_ciphertext))
         case "Autokey":
             if params.get("source") == "Ciphertext":
                 result_ciphertext = autokey(ciphertext,False, params.get("reversed"))
                 decrypt_results.append(result_ciphertext)
                 analysis_functions(analysis,result_ciphertext)
-            if params.get("phonetic") == "True":
+            if params.get("phonetic") == True:
                 print(direct_translation(result_ciphertext))
     print("\n\n")
 
