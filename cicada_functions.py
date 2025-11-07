@@ -28,10 +28,21 @@ primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67
 
 def autokey(ciphertext,phonetic, reversed):
 
+    drop = {'.', '-', '–', '—', '−', "/", "%"}
+
     if reversed == "True":
         ciphertext = ciphertext[::-1]
 
-    #ciphertext = clean(ciphertext,[])
+    ciphertext2 = ""
+    for rune in ciphertext:
+        if rune in drop:
+            ciphertext2 = ciphertext2 + rune
+        else:
+            if rune_to_decimal[rune] == 30:
+                continue
+            else:
+                ciphertext2 = ciphertext2 + rune
+        #ciphertext = clean(ciphertext,[])
 
     transformed_runes = ""
 
@@ -39,9 +50,9 @@ def autokey(ciphertext,phonetic, reversed):
     last_rune = ""
     phonetics = ""
 
-    drop = {'.', '-', '–', '—', '−', "/", "%"}
+    
 
-    for rune in ciphertext:
+    for rune in ciphertext2:
         if rune in drop:
             transformed_runes = transformed_runes + rune
         else:
