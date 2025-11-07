@@ -58,10 +58,9 @@ def decrypt(ciphertext,encryption_method,params,analysis):
             if params.get("phonetic") == "True":
                 print(direct_translation(result_ciphertext))
         case "Shift":
-            if params.get("source") == "Ciphertext":
-                result_ciphertext = shift(ciphertext,params.get("shift"),False)
-                previous_result = result_ciphertext
-                analysis_functions(analysis,result_ciphertext)
+            result_ciphertext = shift(ciphertext,params.get("shift"),False)
+            previous_result = result_ciphertext
+            analysis_functions(analysis,result_ciphertext)
             if params.get("phonetic") == "True":
                 print(direct_translation(result_ciphertext))
 
