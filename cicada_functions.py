@@ -403,20 +403,27 @@ def prime_position(n):
     index = primes.index(n)
     return index
 
-def eulers(runes, phonetic):
+def eulers(runes, phonetic, skips):
     transformed_runes = ""
     phonetics = ""
     rune_index = 0
+    skip_index = 0
+    i = 0
     for rune in runes:
-        if rune in rune_to_decimal:
-            rune_num = rune_to_decimal[rune]
-            prime = primes[rune_index]
-            rune_num = (rune_num - (prime - 1)) % 29
-            new_rune = decimal_to_rune[rune_num]
-            transformed_runes = transformed_runes + new_rune
-            rune_index = rune_index + 1
-        else:
+        if i in skips:
             transformed_runes = transformed_runes + rune
+            i = i+1
+        else:
+            if rune in rune_to_decimal:
+                rune_num = rune_to_decimal[rune]
+                prime = primes[rune_index]
+                rune_num = (rune_num - (prime - 1)) % 29
+                new_rune = decimal_to_rune[rune_num]
+                transformed_runes = transformed_runes + new_rune
+                rune_index = rune_index + 1
+                i = i+1
+            else:
+                transformed_runes = transformed_runes + rune
 
     if phonetic == True:
 

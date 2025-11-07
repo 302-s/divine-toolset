@@ -33,32 +33,32 @@ def decrypt(ciphertext,encryption_method,params,analysis):
             previous_result = result_ciphertext
             analysis_functions(analysis,result_ciphertext)
             if params.get("phonetic") == True:
-                print(direct_translation(result_ciphertext))
+                print(direct_translation(result_ciphertext).replace("/","\n"))
         case "Atbash":
             result_ciphertext = atbash(ciphertext,False)
             previous_result = result_ciphertext
             analysis_functions(analysis,result_ciphertext)
             if params.get("phonetic") == True:
-                print(direct_translation(result_ciphertext))
+                print(direct_translation(result_ciphertext).replace("/","\n"))
         case "Eulers":
             result_ciphertext = eulers(ciphertext,False)
             previous_result = result_ciphertext
             analysis_functions(analysis,result_ciphertext)
             if params.get("phonetic") == True:
-                print(direct_translation(result_ciphertext))
+                print(direct_translation(result_ciphertext).replace("/","\n"))
         case "Autokey":
             if params.get("source") == "Ciphertext":
                 result_ciphertext = autokey(ciphertext,False, params.get("reversed"))
                 previous_result = result_ciphertext
                 analysis_functions(analysis,result_ciphertext)
             if params.get("phonetic") == True:
-                print(direct_translation(result_ciphertext))
+                print(direct_translation(result_ciphertext).replace("/","\n"))
         case "Shift":
             result_ciphertext = shift(ciphertext,params.get("shift"),False)
             previous_result = result_ciphertext
             analysis_functions(analysis,result_ciphertext)
             if params.get("phonetic") == True:
-                print(direct_translation(result_ciphertext))
+                print(direct_translation(result_ciphertext).replace("/","\n"))
 
 def analysis_main(ciphertext):
     ioc = input("IoC? (Y/n): ")
@@ -145,26 +145,26 @@ def menu_choices(selection, chained, *args):
                             decrypt_results.append(result_ciphertext)
                             analysis_functions(analysis,result_ciphertext)
                             if params.get("phonetic") == True:
-                                print(direct_translation(result_ciphertext))
+                                print(direct_translation(result_ciphertext).replace("/","\n"))
                         case "Atbash":
                             result_ciphertext = atbash(ciphertext,False)
                             decrypt_results.append(result_ciphertext)
                             analysis_functions(analysis,result_ciphertext)
                             if params.get("phonetic") == True:
-                                print(direct_translation(result_ciphertext))
+                                print(direct_translation(result_ciphertext).replace("/","\n"))
                         case "Eulers":
                             result_ciphertext = eulers(ciphertext,False)
                             decrypt_results.append(result_ciphertext)
                             analysis_functions(analysis,result_ciphertext)
                             if params.get("phonetic") == True:
-                                print(direct_translation(result_ciphertext))
+                                print(direct_translation(result_ciphertext).replace("/","\n"))
                         case "Autokey":
                             if params.get("source") == "Ciphertext":
                                 result_ciphertext = autokey(ciphertext,False, params.get("reversed"))
                                 decrypt_results.append(result_ciphertext)
                                 analysis_functions(analysis,result_ciphertext)
                             if params.get("phonetic") == True:
-                                print(direct_translation(result_ciphertext))
+                                print(direct_translation(result_ciphertext).replace("/","\n"))
                     print("\n\n")
 
                     chaining = True
@@ -287,7 +287,7 @@ def menu_choices(selection, chained, *args):
             if analysis:
                 analysis_main(result_ciphertext)
             if phonetic == True:
-                print(direct_translation(result_ciphertext))
+                print(direct_translation(result_ciphertext).replace("/","\n"))
 
         case 4:
             if chained:
@@ -308,7 +308,7 @@ def menu_choices(selection, chained, *args):
             if analysis:
                 analysis_main(result_ciphertext)
             if phonetic == True:
-                print(direct_translation(result_ciphertext))
+                print(direct_translation(result_ciphertext).replace("/","\n"))
 
         case 5:
             if chained:
@@ -320,21 +320,21 @@ def menu_choices(selection, chained, *args):
             if analysis:
                 analysis_main(result_ciphertext)
             if phonetic == True:
-                print(direct_translation(result_ciphertext))
+                print(direct_translation(result_ciphertext).replace("/","\n"))
         
         case 6:
             if chained:
                 ciphertext = args[0]
             else:
                 ciphertext = input_ciphertext()
-            result_ciphertext = eulers(ciphertext,False)
-
+            skips = get_skips()
+            result_ciphertext = eulers(ciphertext,False,skips)
             analysis, phonetic = questions()
 
             if analysis:
                 analysis_main(result_ciphertext)
             if phonetic == True:
-                print(direct_translation(result_ciphertext))
+                print(direct_translation(result_ciphertext).replace("/","\n"))
         
         case 7:
             if chained:
@@ -348,7 +348,7 @@ def menu_choices(selection, chained, *args):
             if analysis:
                 analysis_main(result_ciphertext)
             if phonetic == True:
-                print(direct_translation(result_ciphertext))
+                print(direct_translation(result_ciphertext).replace("/","\n"))
  
         case 8:
             n = input("Give n for nth prime: ")
