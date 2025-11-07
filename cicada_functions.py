@@ -67,6 +67,8 @@ def autokey(ciphertext,phonetic, reversed):
     else:
         return transformed_runes
     
+# This function can be used for the magic square:
+# nums = [3299,3298,3296,3294,3288,3278,3258,3222,3152,3038,2838,2472,1820,708,-1206,-4516]
 
 def fibo(nums):
     for num in nums:

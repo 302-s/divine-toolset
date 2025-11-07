@@ -5,21 +5,32 @@ import itertools
 from collections import Counter
 import math
 
-
-
+# Get filename from system args
 filename = sys.argv[1]
 
+# Open JSON file and retrieve the data
 with open(filename, "r", encoding="utf-8") as f:
     data = json.load(f)
 
+# Define ciphertext from JSON
 ciphertext = data["ciphertext"]
+
+# Currently available algorithms in the tool
 available_algos = ['Vigenere', 'Atbash', 'Autokey', 'Eulers', 'Shift']
 
+# Initialise some variables
 decrypt_results = []
 used_encryptions = []
 previous_result = ""
 
+# Define the main decryption function for later than first time use.
+# Need ciphertext, encryption method from available alogs, certian parameter dictionary and analysis dictionary
 def decrypt(ciphertext,encryption_method,params,analysis):
+
+    # Basic switch between decryptions
+    # Every decryption gets the result from the function. See cicada_functions.py to see what the variables are for
+   
+    # Perform analysis functions based on parameters (or don't)
     match encryption_method:
         case "Vigenere":
             result_ciphertext = vigenere(ciphertext,params.get("key"),True,params.get("skips"), False)
@@ -53,6 +64,9 @@ def decrypt(ciphertext,encryption_method,params,analysis):
                 analysis_functions(analysis,result_ciphertext)
             if params.get("phonetic") == "True":
                 print(direct_translation(result_ciphertext))
+
+# The tool can handle multiple encryptions at the same time, as seen in examlpe json.
+# results from all are printed after which it is possible to chain-link to one of the results.
 
 for encryption in data["encryption"]:
     encryption_method = encryption.get("type")
@@ -94,6 +108,7 @@ first_time = True
 
 current_text = ""
 
+# Holy spaghetti code
 while chaining:
     option = input("Chain a result? (y/n)")
     if option == "n" or option == "no":
@@ -111,6 +126,8 @@ while chaining:
 
         selected_algo = available_algos[int(algo)-1]
 
+
+        # Define mandatory variables for the functions
         match selected_algo:
             case "Vigenere":
                 skips = input("Insert skips (e.g. 61,73,118): ")
@@ -134,6 +151,7 @@ while chaining:
 
         analysis = encryption.get("analysis")
 
+        # Set analysis parameters, IC2 not implemented
         ioc = input("IoC? (True/False): ")
         ic2 = False
         freq = input("Frequency? (True/False)")
