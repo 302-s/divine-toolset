@@ -179,6 +179,7 @@ def vigenere(runes, key, phonetic, skips, reverse):
     i = 0
     rune_indx = 0
     skip = skips
+    print(skip)
     for rune in runes:
         rune_indx = rune_indx + 1
         if rune_indx in skip:

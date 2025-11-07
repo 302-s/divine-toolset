@@ -130,6 +130,10 @@ while chaining:
         match selected_algo:
             case "Vigenere":
                 skips = input("Insert skips (e.g. 61,73,118): ")
+                skips_arr = []
+                skips_split = skips.split(",")
+                for item in skips_split:
+                    skips_arr.append(int(item))
                 key = input("Insert Vigenere key in runes: ")
                 phonetic = input("Show phonetics? (Y/n): ")
                 if phonetic == "n":
@@ -137,7 +141,7 @@ while chaining:
                 else:
                     phonetic = True
 
-                parameters = {"skips": skips, "key":key, "phonetic":phonetic}
+                parameters = {"skips": skips_arr, "key":key, "phonetic":phonetic}
 
             case "Atbash":
                 phonetic = input("Show phonetics? (Y/n): ")
