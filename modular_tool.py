@@ -109,7 +109,7 @@ current_text = ""
 
 # Holy spaghetti code
 while chaining:
-    option = input("Chain a result? (y/n)")
+    option = input("Chain a result? (Y/n)")
     if option == "n" or option == "no":
         break
     else:
@@ -131,29 +131,69 @@ while chaining:
             case "Vigenere":
                 skips = input("Insert skips (e.g. 61,73,118): ")
                 key = input("Insert Vigenere key in runes: ")
-                phonetic = input("Show phonetics? (True/False): ")
+                phonetic = input("Show phonetics? (Y/n): ")
+                if phonetic == "n":
+                    phonetic = False
+                else:
+                    phonetic = True
+
                 parameters = {"skips": skips, "key":key, "phonetic":phonetic}
+
             case "Atbash":
-                phonetic = input("Show phonetics? (True/False): ")
+                phonetic = input("Show phonetics? (Y/n): ")
+                if phonetic == "n":
+                    phonetic = False
+                else:
+                    phonetic = True
+
                 parameters = {"skips": [], "phonetic": phonetic}
             case "Eulers":
-                phonetic = input("Show phonetics? (True/False): ")
+                phonetic = input("Show phonetics? (Y/n): ")
+                if phonetic == "n":
+                    phonetic = False
+                else:
+                    phonetic = True
+
                 parameters = {"phonetic": phonetic}
+
             case "Autokey":
-                reversed = input("Reverse? (True/False): ")
-                phonetic = input("Show phonetics? (True/False): ")
+                reversed = input("Reverse? (Y/n): ")
+                if reversed == "n":
+                    reversed = False
+                else:
+                    reversed = True
+
+                phonetic = input("Show phonetics? (Y/n): ")
+                if phonetic == "n":
+                    phonetic = False
+                else:
+                    phonetic = True
                 parameters = {"skip": [], "source":"Ciphertext", "phonetic": phonetic, "reversed": reversed}
+
             case "Shift":
                 shifts = input("Shift value: ")
-                phonetic = input("Show phonetics? (True/False): ")
+                phonetic = input("Show phonetics? (Y/n): ")
+                if phonetic == "n":
+                    phonetic = False
+                else:
+                    phonetic = True
+                ic2 = False
                 parameters = {"shift":int(shifts), "phonetic": phonetic}
 
         analysis = encryption.get("analysis")
 
         # Set analysis parameters, IC2 not implemented
-        ioc = input("IoC? (True/False): ")
+        ioc = input("IoC? (Y/n): ")
+        if ioc == "n":
+            ioc = False
+        else:
+            ioc = True
         ic2 = False
-        freq = input("Frequency? (True/False)")
+        freq = input("Frequency? (Y/n)")
+        if freq == "n":
+            freq = False
+        else:
+            freq = True
 
         analysis = {"IoC": ioc, "IC2": ic2, "Frequency": freq}
         decrypt(current_text,selected_algo,parameters,analysis)
