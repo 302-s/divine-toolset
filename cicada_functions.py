@@ -284,7 +284,20 @@ def analysis_functions(analysis, ciphertext):
             print(f"Theorised key length: {true_k}")
 
     if analysis.get("IC2"):
-        print("IC2 functionality doesn't exist yet")
+
+        ioc_values = {}  # store IoC per key length
+        max_k = 29
+        for k in range(1, max_k+1):
+            avg_ioc, per = avg_bigram_ioc_for_keylen(ciphertext, k)
+            ioc_values[k] = avg_ioc
+            #print(f"{k:2d}\tavg IoC={avg_ioc:.5f}\tper-group={['%.5f' % x for x in per]}")
+
+        # Plot
+        print("\nIoC (bigram) graph (higher bar = higher IoC):\n")
+        scale = 200  # adjust scaling factor
+        for k, v in ioc_values.items():
+            bar = "█" * int(v * scale)
+            print(f"{k:2d} | {bar} ({v:.4f})")
 
     if analysis.get("Frequency"):
         print(letter_frequency2(ciphertext))
