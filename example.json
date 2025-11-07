@@ -1,0 +1,56 @@
+{
+	"ciphertext": "ᚪ-ᛗᛝᛞᛡᚦᛉᛁᛗ.ᛡᛞᛈᛝᚢᚹᚪᛗ-ᛏᚪ/ᛝ-ᛝᚦᛡᚹᛋᚻ-ᛁᚳ-ᚫᛈᚫᚷᚩ-ᛗᛁᚪ-ᛖᚩ-ᛏᚹ/ᚩ-ᚠᚣᚢᛏᛄ-ᚦᛄᛠᛖᚳᚾᛠ-ᚳᛠᛖ-ᚱ/ᚩᚢᛉ-ᛞᚹᚻᛒᛝᚠᚪᚳᛄᚢ-ᚩᛄᛡᛠᛁᛚᚷᚻ-ᛒᚢ/ᛄ-ᛉᚪᚳᚹᛡ-ᛗᚩᛈᚣᛞᛡᛚᛈ-ᛇᛁᚦᚱ-ᚣᚷᛗ-ᛉ/ᛟᚷᛋ-ᛗᛈᛄᛟᛞ-ᛟᛏᛡᛟ-ᛏᛝᛁ-ᛗᛝᚣᚪᚫ-ᛝ-ᚱ/ᚣᛄ-ᚾᛚᚢᛉᛒ-ᚻᛈᛄᚩᛠ-ᚷᚫᚹ-ᛉᛋᛞᚳ-ᚢᛏ-/ᛟᚻᛇᚾᛈᛏ-ᛠᚣᛒᚢᚷ-ᚷᚪᛇ-ᚾᚷᚩᛖᛚᛗᛒᚦ-ᚣ/ᛡᛟᛇᚣ-ᛗᚳᛟᚦ-ᛖᛚᚱᛇᛈᚱᛞᚣ-ᛉᛞ-ᛝᚣᛈ-/ᛋᛖᛉᚹ-ᚳᚷᚠᛞᚱᛖ-ᛞᛖᚹᚩᛇᛟ-ᚻᚩᛟ-ᛒᛋ-ᚻ/ᛠᚪᚳᛁᛗᛉᛄᛗᛖ-ᛗᛚ-ᚷᚩᛏᚦᛉᛖᛠᚱᚷᚣ/%ᛝ-ᚫᛗᛁᚹ-ᛋᛒ-ᛉᛗ-ᛋᛇᚷᛞᚦᚫ-ᚠᛡᚪᛒᚳᚢ-ᚹᚱ-ᛒ/ᛠᚠᛉᛁᛗᚢᚳᛈᚻᛝᛚᛇ-ᛗᛋᛞᛡᛈᚠ-ᛒᚻᛇᚳ-/ᛇᛖ-ᛠᛖᛁᚷᛉᚷᛋ-ᛖᛋᛇᚦᚦᛖᛋ-ᚦᛟ-ᚳᛠᛁᛗ/ᚳᛉ-ᛞᛄᚢ-ᛒᛖᛁ./",
+	"encryption":[
+		{
+			"type":"Vigenere",
+			"params":{
+				"skips": [61, 73, 118, 180, 224, 303],
+				"key": "ᛞᛁᚢᛁᚾᛁᛏᚣ",
+				"modified": false,
+				"phonetic": false
+			},
+			"analysis":{
+				"IoC": false,
+				"IC2": false,
+				"Frequency": false	
+			}			
+		},
+		{
+			"type":"Atbash",
+			"params": {
+				"skips": [],
+				"phonetic": false
+			},
+			"analysis":{
+				"IoC": false,
+				"IC2": false,
+				"Frequency": false	
+			}
+		},
+		{
+			"type":"Autokey",
+			"params": {
+				"skips": [],
+				"source": "Ciphertext",
+				"phonetic": false,
+				"reversed": false
+			},
+			"analysis":{
+				"IoC": true,
+				"IC2": true,
+				"Frequency": true	
+			}
+		},
+				{
+			"type":"Eulers",
+			"params": {
+				"phonetic": false
+			},
+			"analysis":{
+				"IoC": false,
+				"IC2": false,
+				"Frequency": false	
+			}
+		}
+	]
+}
